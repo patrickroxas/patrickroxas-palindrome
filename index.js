@@ -1,19 +1,13 @@
+module.exports = Phrase;
+
 // Adds `reverse` to all strings.
-String.prototype.reverse = function() {
+String.prototype.reverse = function () {
 	return Array.from(this).reverse().join("");
 }
 
 // Defines a Phrase object.
 function Phrase(content) {
   this.content = content;
-
-  this.processor = function(string) {
-  	return string.toLowerCase();
-  }
-
-  this.processedContent = function processedContent() {
-  	return this.processor(this.content);
-  }
 
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent() {
@@ -24,14 +18,4 @@ function Phrase(content) {
   this.palindrome = function palindrome() {
     return this.processedContent() === this.processedContent().reverse();
   }
-}
-
-// Returns true if the string is empty or consists solely of whitespace (spaces, tabs, or newlines)
-String.prototype.blank = function() {
-	return /^\s*$/.test(this);
-}
-
-// Returns last element of an array
-String.prototype.last = function() {
-	return this.slice(-1);
 }
